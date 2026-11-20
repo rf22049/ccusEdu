@@ -1,0 +1,15 @@
+FILE SEMENTARA — INFOGRAFIK PROSES CCUS
+
+Status: Placeholder untuk demo. Ganti file ini dengan materi final sebelum peluncuran.
+Format materi final yang direncanakan: PPT.
+
+Tentang materi:
+Visualisasi ringkas tahapan Capture, Utilization, and Storage pada rantai proses CCUS.
+
+Rencana isi:
+- Capture: CO2 ditangkap dari sumber emisi
+- Transport: CO2 dibawa ke lokasi pemanfaatan atau penyimpanan
+- Utilization: CO2 dimanfaatkan sebagai bahan baku atau produk
+- Storage: CO2 disimpan pada lokasi geologis yang sesuai
+
+Konten ini hanya contoh sementara dan bukan materi pembelajaran final.

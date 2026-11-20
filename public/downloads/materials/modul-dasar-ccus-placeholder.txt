@@ -1,0 +1,15 @@
+FILE SEMENTARA — MODUL DASAR CCUS
+
+Status: Placeholder untuk demo. Ganti file ini dengan materi final sebelum peluncuran.
+Format materi final yang direncanakan: PDF.
+
+Tentang materi:
+Pengenalan tentang konsep, proses, dan manfaat Carbon Capture, Utilization, and Storage (CCUS).
+
+Rencana isi:
+- Pengertian CCUS
+- Gambaran umum penangkapan karbon
+- Pemanfaatan dan penyimpanan CO2
+- Contoh manfaat dan tantangan
+
+Konten ini hanya contoh sementara dan bukan materi pembelajaran final.

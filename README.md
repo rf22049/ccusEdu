@@ -1,4 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CCUS Edu
+
+Next.js recreation of the CCUS Edu Laravel site's learning experience.
+
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Pages
+
+- `/` — homepage and CCUS overview
+- `/tentang-kami` — about page
+- `/uji-pemahaman` — interactive CCUS quiz
+- `/materi-modul` — searchable, filterable resource catalog and placeholder downloads
+- `/belajar-ccus` — six-step learning catalog
+- `/belajar-ccus/[slug]` — interactive lessons with sequential unlocks
+
+Lesson progress is stored in the browser's local storage. Resource downloads are
+the placeholder text files from the Laravel project; their displayed PDF, PPT,
+and MP4 formats describe the planned final resources.
+
+## Checks
+
+```bash
+npm run lint
+npm run build
+```
 
 ## Getting Started
 
