@@ -3,12 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSyncExternalStore } from "react";
-import { learningMaterials } from "@/lib/materials";
+import { useSiteContent } from "@/lib/site-content";
 import {
   getProgressSnapshot,
   getServerProgressSnapshot,
   subscribeProgress,
 } from "@/lib/progress";
+
+const materialIllustrations: Record<string, string> = {
+  "pengantar-ccus": "/images/ccus_edu_asset_library/ccus_process_nature/ccus_process_nature_01.png",
+  "carbon-capture": "/images/ccus_edu_asset_library/ccus_process_nature/ccus_process_nature_02.png",
+  "carbon-utilization": "/images/ccus_edu_asset_library/ccus_process_nature/ccus_process_nature_03.png",
+  "carbon-storage": "/images/ccus_edu_asset_library/industrial_nature_education/industrial_nature_education_03.png",
+  "integrasi-ccus": "/images/ccus_edu_asset_library/industrial_nature_education/industrial_nature_education_01.png",
+  "ccus-indonesia": "/images/ccus_edu_asset_library/ccus_process_nature/ccus_process_nature_05.png",
+};
 
 function subscribeLocation(onChange: () => void) {
   window.addEventListener("popstate", onChange);
@@ -20,6 +29,7 @@ function getLocationSnapshot() {
 }
 
 export default function LearningIndexPage() {
+  const { lessons } = useSiteContent();
   const progressSnapshot = useSyncExternalStore(
     subscribeProgress,
     getProgressSnapshot,
@@ -28,7 +38,7 @@ export default function LearningIndexPage() {
   const locationSearch = useSyncExternalStore(subscribeLocation, getLocationSnapshot, () => "");
   const storedProgress = progressSnapshot.split(",").map((value) => Number(value));
   const progress = Object.fromEntries(
-    learningMaterials.map((material, index) => [
+    lessons.map((material, index) => [
       material.slug,
       Number.isInteger(storedProgress[index]) && storedProgress[index] >= 0
         ? storedProgress[index]
@@ -51,14 +61,20 @@ export default function LearningIndexPage() {
               materi yang tersusun sistematis dan interaktif.
             </p>
             <div className="learn-hero-meta">
-              <span>📚 {learningMaterials.length} Materi</span>
+              <span>📚 {lessons.length} Materi</span>
               <span>⏱️ Belajar sesuai ritmemu</span>
             </div>
           </div>
           <div className="learn-hero-mascot">
             <div className="learn-decoration decoration-one">✦</div>
             <div className="learn-decoration decoration-two">✦</div>
-            <Image src="/images/coco-studying.svg" alt="Coco sedang belajar CCUS" width={210} height={210} />
+            <Image
+              src="/images/ccus_edu_asset_library/coco_game_education/coco_game_education_01.png"
+              alt="Coco sedang belajar CCUS"
+              width={210}
+              height={210}
+              loading="eager"
+            />
             <div className="mascot-caption"><span>👋</span> Yuk, belajar bersama Coco!</div>
           </div>
         </div>
@@ -72,10 +88,10 @@ export default function LearningIndexPage() {
           <aside className="learn-sidebar">
             <h3>Daftar Materi</h3>
             <a href="#semua-materi" className="sidebar-link active"><span>⌂</span>Semua Materi</a>
-            {learningMaterials.map((material, index) => {
+            {lessons.map((material, index) => {
               const isCompleted = (progress[material.slug] ?? 0) >= material.slides.length;
               const isUnlocked = index === 0
-                || (progress[learningMaterials[index - 1].slug] ?? 0) >= learningMaterials[index - 1].slides.length;
+                || (progress[lessons[index - 1].slug] ?? 0) >= lessons[index - 1].slides.length;
               return (
                 <a className="sidebar-link" href={`#material-${material.number}`} key={material.slug}>
                   <span>{isCompleted ? "✓" : isUnlocked ? "◉" : "🔒"}</span>
@@ -92,16 +108,16 @@ export default function LearningIndexPage() {
                 <h2>Materi Belajar CCUS</h2>
                 <p>Selesaikan materi secara berurutan untuk membuka pembelajaran berikutnya.</p>
               </div>
-              <span className="material-count">{String(learningMaterials.length).padStart(2, "0")} MATERI</span>
+              <span className="material-count">{String(lessons.length).padStart(2, "0")} MATERI</span>
             </div>
             <div className="material-grid">
-              {learningMaterials.map((material, index) => {
+              {lessons.map((material, index) => {
                 const completed = Math.min(progress[material.slug] ?? 0, material.slides.length);
                 const percentage = material.slides.length > 0
                   ? Math.round((completed / material.slides.length) * 100)
                   : 0;
                 const isUnlocked = index === 0
-                  || (progress[learningMaterials[index - 1].slug] ?? 0) >= learningMaterials[index - 1].slides.length;
+                  || (progress[lessons[index - 1].slug] ?? 0) >= lessons[index - 1].slides.length;
                 const isCompleted = completed >= material.slides.length;
                 return (
                   <article
@@ -110,7 +126,14 @@ export default function LearningIndexPage() {
                     key={material.slug}
                   >
                     <div className="material-card-top">
-                      <div className="material-icon">{material.icon}</div>
+                      <div className="material-icon">
+                        <Image
+                          src={materialIllustrations[material.slug]}
+                          alt=""
+                          width={46}
+                          height={46}
+                        />
+                      </div>
                       {isCompleted ? (
                         <span className="material-status status-complete">✓ Selesai</span>
                       ) : !isUnlocked ? (

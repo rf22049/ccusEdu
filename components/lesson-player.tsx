@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useSyncExternalStore } from "react";
-import { learningMaterials, type LearningMaterial } from "@/lib/materials";
+import type { LearningMaterial } from "@/lib/materials";
+import { useSiteContent } from "@/lib/site-content";
 import {
   getProgressSnapshot,
   getServerProgressSnapshot,
@@ -14,24 +15,27 @@ import {
 
 export default function LessonPlayer({ material }: { material: LearningMaterial }) {
   const router = useRouter();
+  const { lessons } = useSiteContent();
+  const currentMaterial = lessons.find((item) => item.slug === material.slug) ?? material;
   const progressSnapshot = useSyncExternalStore(
     subscribeProgress,
     getProgressSnapshot,
     getServerProgressSnapshot,
   );
   const progressValues = progressSnapshot.split(",").map((value) => Number(value));
-  const materialIndex = learningMaterials.findIndex((item) => item.slug === material.slug);
+  const materialIndex = lessons.findIndex((item) => item.slug === currentMaterial.slug);
+  const nextMaterial = lessons[materialIndex + 1];
   const storedProgress = progressValues[materialIndex] ?? 0;
   const completedSlides = Number.isInteger(storedProgress) && storedProgress >= 0
-    ? Math.min(storedProgress, material.slides.length)
+    ? Math.min(storedProgress, currentMaterial.slides.length)
     : 0;
-  const previousMaterial = learningMaterials[materialIndex - 1];
+  const previousMaterial = lessons[materialIndex - 1];
   const previousProgress = progressValues[materialIndex - 1] ?? 0;
   const isLocked = materialIndex > 0
     && (!previousMaterial || previousProgress < previousMaterial.slides.length);
   const [selectedSlide, setSelectedSlide] = useState<number | null>(null);
   const [saveStatus, setSaveStatus] = useState("Progress tersimpan otomatis");
-  const totalSlides = material.slides.length;
+  const totalSlides = currentMaterial.slides.length;
   const percentage = totalSlides ? Math.round((completedSlides / totalSlides) * 100) : 0;
   const isCompleted = completedSlides >= totalSlides;
   const currentSlide = selectedSlide
@@ -53,7 +57,7 @@ export default function LessonPlayer({ material }: { material: LearningMaterial 
         totalSlides,
         Math.max(completedSlides, currentSlide + 1),
       );
-      saveProgress(material.slug, nextCompleted);
+      saveProgress(currentMaterial.slug, nextCompleted);
       if (nextCompleted >= totalSlides) {
         setSaveStatus("🎉 Materi berhasil diselesaikan!");
       } else {
@@ -70,6 +74,22 @@ export default function LessonPlayer({ material }: { material: LearningMaterial 
     }
   }
 
+  function restartLesson() {
+    setSaveStatus("Mengatur ulang progress...");
+    try {
+      saveProgress(currentMaterial.slug, 0);
+      setSelectedSlide(0);
+      setSaveStatus("Materi siap dimulai kembali");
+    } catch (error) {
+      setSaveStatus("Gagal mengatur ulang progress");
+      window.alert(
+        error instanceof Error
+          ? `Progress tidak dapat diatur ulang: ${error.message}`
+          : "Progress tidak dapat diatur ulang.",
+      );
+    }
+  }
+
   if (isLocked) {
     return <main className="lesson-page"><div className="container lesson-breadcrumb">Memuat materi...</div></main>;
   }
@@ -79,28 +99,30 @@ export default function LessonPlayer({ material }: { material: LearningMaterial 
       <div className="container lesson-breadcrumb">
         <Link href="/belajar-ccus">Belajar CCUS</Link>
         <span>›</span>
-        <span>{material.title}</span>
+        <span>{currentMaterial.title}</span>
       </div>
 
       <section className="container lesson-hero">
         <div className="lesson-hero-copy">
           <span className="section-kicker green-kicker">
-            MATERI {String(material.number).padStart(2, "0")} / {material.category}
+            MATERI {String(currentMaterial.number).padStart(2, "0")} / {currentMaterial.category}
           </span>
-          <h1>{material.title}</h1>
-          <p>{material.description}</p>
+          <h1>{currentMaterial.title}</h1>
+          <p>{currentMaterial.description}</p>
           <div className="lesson-meta">
             <span>📖 {totalSlides} Slide</span>
-            <span>⏱️ {material.duration}</span>
+            <span>⏱️ {currentMaterial.duration}</span>
           </div>
         </div>
         <div className="lesson-hero-art">
-          <div className="factory-sky-cloud cloud-a" />
-          <div className="factory-sky-cloud cloud-b" />
-          <div className="factory-scene-icon">🏭</div>
-          <div className="factory-ground" />
-          <div className="factory-tree tree-a">🌳</div>
-          <div className="factory-tree tree-b">🌳</div>
+          <Image
+            className="lesson-hero-image"
+            src="/images/ccus_edu_asset_library/ccus_process_nature/ccus_process_nature_01.png"
+            alt="Ilustrasi fasilitas CCUS di lingkungan hijau"
+            width={438}
+            height={261}
+            loading="eager"
+          />
         </div>
       </section>
 
@@ -108,7 +130,7 @@ export default function LessonPlayer({ material }: { material: LearningMaterial 
         <aside className="lesson-sidebar">
           <div className="lesson-sidebar-heading"><span>📚</span><h2>Daftar Isi</h2></div>
           <div className="lesson-toc">
-            {material.slides.map((slide, index) => (
+            {currentMaterial.slides.map((slide, index) => (
               <button
                 type="button"
                 className={`toc-item${index === currentSlide && !isCompleted ? " active" : ""}${index < completedSlides ? " completed" : ""}`}
@@ -159,7 +181,7 @@ export default function LessonPlayer({ material }: { material: LearningMaterial 
                 </div>
               </div>
               <div className="lesson-slides">
-                {material.slides.map((slide, index) => (
+                {currentMaterial.slides.map((slide, index) => (
                   <article
                     className={`lesson-slide${index === currentSlide ? " active" : ""}`}
                     data-slide={index}
@@ -174,7 +196,12 @@ export default function LessonPlayer({ material }: { material: LearningMaterial 
                       <div><strong>Tujuan Pembelajaran</strong><p>{slide.takeaway}</p></div>
                     </div>
                     <div className="slide-mascot">
-                      <Image src="/images/coco-studying.svg" alt="Coco" width={90} height={90} />
+                      <Image
+                        src="/images/ccus_edu_asset_library/coco_game_education/coco_game_education_01.png"
+                        alt="Coco sedang membaca"
+                        width={90}
+                        height={90}
+                      />
                       <span>{index === totalSlides - 1 ? "Hebat! Kamu hampir selesai!" : "Yuk, lanjut belajar!"}</span>
                     </div>
                   </article>
@@ -185,8 +212,20 @@ export default function LessonPlayer({ material }: { material: LearningMaterial 
             <div className="lesson-completion" data-completion>
               <div className="completion-icon">🎉</div>
               <h2>Materi Berhasil Diselesaikan!</h2>
-              <p>Hebat! Kamu sudah menyelesaikan seluruh slide {material.title}.</p>
-              <Link href="/belajar-ccus" className="completion-button">Kembali ke Daftar Materi →</Link>
+              <p>Hebat! Kamu sudah menyelesaikan seluruh slide {currentMaterial.title}.</p>
+              <div className="completion-actions">
+                <button type="button" className="completion-button secondary" onClick={restartLesson}>
+                  ↻ Mulai Ulang Materi
+                </button>
+                <Link href="/belajar-ccus" className="completion-button">
+                  Kembali ke Daftar Materi
+                </Link>
+                {nextMaterial && (
+                  <Link href={`/belajar-ccus/${nextMaterial.slug}`} className="completion-button">
+                    Materi Berikutnya →
+                  </Link>
+                )}
+              </div>
             </div>
           )}
           <div className="lesson-content-footer">

@@ -46,6 +46,9 @@ export default function SiteFooter() {
       <div className="container footer-bottom">
         <span>© 2026 CCUS Edu. All rights reserved.</span>
         <span>Made for curious minds 🌱</span>
+        <Link className="footer-admin-link" href="/admin" aria-label="Buka pengelola konten">
+          Admin
+        </Link>
       </div>
     </footer>
   );

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import SiteFooter from "@/components/site-footer";
 
 const learningCards = [
   {
@@ -36,6 +35,7 @@ const articles = [
   {
     category: "CCUS BASICS",
     art: "🌍",
+    artSrc: "/images/ccus_edu_asset_library/ccus_process_nature/ccus_process_nature_09.png",
     style: "article-image-earth",
     label: "Dasar CCUS",
     time: "5 menit membaca",
@@ -47,6 +47,7 @@ const articles = [
   {
     category: "TECHNOLOGY",
     art: "🏭",
+    artSrc: "/images/ccus_edu_asset_library/industrial_nature_education/industrial_nature_education_01.png",
     style: "article-image-industry",
     label: "Teknologi",
     time: "4 menit membaca",
@@ -58,6 +59,7 @@ const articles = [
   {
     category: "ENVIRONMENT",
     art: "🌱",
+    artSrc: "/images/ccus_edu_asset_library/ccus_process_nature/ccus_process_nature_20.png",
     style: "article-image-storage",
     label: "Lingkungan",
     time: "6 menit membaca",
@@ -115,7 +117,7 @@ export default function Home() {
               <div className="sun-orb" />
               <div className="hero-mascot">
                 <Image
-                  src="/images/coco-studying.svg"
+                  src="/images/ccus_edu_asset_library/coco_game_education/coco_game_education_01.png"
                   alt="Coco, maskot CO2 CCUS Edu"
                   width={180}
                   height={180}
@@ -167,11 +169,12 @@ export default function Home() {
 
         <section className="container impact-banner" id="belajar">
           <div className="earth-art" aria-hidden="true">
-            <svg viewBox="0 0 300 220">
-              <circle cx="145" cy="116" r="96" fill="#55B8C2" />
-              <path d="M67 58Q90 25 126 38l20 22-20 18-26-5-8 23-26-5-13-16Zm90-24q47-8 68 28l-17 25-28-4-11 22-26-15-10-30Z" fill="#8ACB70" />
-              <path d="m102 133 28-14 25 18-8 32-24 21-25-21Zm88-1 32-13 15 26-24 32-27-12Z" fill="#8ACB70" />
-            </svg>
+            <Image
+              src="/images/ccus_edu_asset_library/ccus_process_nature/ccus_process_nature_12.png"
+              alt=""
+              width={300}
+              height={220}
+            />
           </div>
           <div className="impact-copy">
             <span className="section-kicker">MENGAPA CCUS PENTING?</span>
@@ -191,22 +194,34 @@ export default function Home() {
             <Link className="game-preview" href="/uji-pemahaman" aria-label="Mulai kuis CCUS">
               <div className="game-preview-title">Uji Pemahaman:<br />Kuis Interaktif</div>
               <div className="game-sky" />
-              <Image className="game-coco" src="/images/coco-studying.svg" alt="" width={135} height={135} />
+              <Image
+                className="game-coco"
+                src="/images/ccus_edu_asset_library/coco_game_education/coco_game_education_03.png"
+                alt=""
+                width={135}
+                height={135}
+              />
               <div className="game-ground" />
               <span className="play-button">▶</span>
             </Link>
           </article>
           <article className="steps-card">
             <div className="steps-heading">
-              <div className="steps-heading-icon">🌿</div>
+              <Image
+                className="steps-heading-icon"
+                src="/images/ccus_edu_asset_library/ccus_process_nature/ccus_process_nature_20.png"
+                alt=""
+                width={58}
+                height={58}
+              />
               <div><span className="steps-subtitle">THE CCUS PROCESS</span><h2>Tiga Langkah Menuju Udara Lebih Bersih</h2><p>Kenali perjalanan CO₂ melalui teknologi CCUS.</p></div>
             </div>
             <div className="steps-flow">
-              <div className="step"><div className="step-visual capture-visual">🏭</div><div className="step-label"><span className="step-number">01</span><strong>Capture</strong></div><p>Menangkap dan memisahkan CO₂ dari sumber emisi industri.</p></div>
+              <div className="step"><div className="step-visual capture-visual"><Image src="/images/ccus_edu_asset_library/industrial_nature_education/industrial_nature_education_01.png" alt="" width={130} height={90} /></div><div className="step-label"><span className="step-number">01</span><strong>Capture</strong></div><p>Menangkap dan memisahkan CO₂ dari sumber emisi industri.</p></div>
               <div className="step-connector"><span>→</span></div>
-              <div className="step"><div className="step-visual utilization-visual">🧪</div><div className="step-label"><span className="step-number">02</span><strong>Utilization</strong></div><p>Memanfaatkan CO₂ sebagai bahan untuk menghasilkan produk bernilai.</p></div>
+              <div className="step"><div className="step-visual utilization-visual"><Image src="/images/ccus_edu_asset_library/ccus_process_nature/ccus_process_nature_15.png" alt="" width={130} height={90} /></div><div className="step-label"><span className="step-number">02</span><strong>Utilization</strong></div><p>Memanfaatkan CO₂ sebagai bahan untuk menghasilkan produk bernilai.</p></div>
               <div className="step-connector"><span>→</span></div>
-              <div className="step"><div className="step-visual storage-visual">🪨</div><div className="step-label"><span className="step-number">03</span><strong>Storage</strong></div><p>Menyimpan CO₂ di formasi geologi bawah tanah yang sesuai.</p></div>
+              <div className="step"><div className="step-visual storage-visual"><Image src="/images/ccus_edu_asset_library/ccus_process_nature/ccus_process_nature_25.png" alt="" width={130} height={90} /></div><div className="step-label"><span className="step-number">03</span><strong>Storage</strong></div><p>Menyimpan CO₂ di formasi geologi bawah tanah yang sesuai.</p></div>
             </div>
           </article>
         </section>
@@ -239,7 +254,9 @@ export default function Home() {
               <article className={`article-card${index === 0 ? " article-featured" : ""}`} key={article.title}>
                 <div className={`article-image ${article.style}`}>
                   <span className="article-category">{article.category}</span>
-                  <div className={index === 0 ? "article-earth" : "article-visual-icon"}>{article.art}</div>
+                  <div className={index === 0 ? "article-earth" : "article-visual-icon"}>
+                    <Image src={article.artSrc} alt="" width={index === 0 ? 220 : 180} height={150} />
+                  </div>
                   {index === 0 && <span className="article-decoration">✦</span>}
                 </div>
                 <div className="article-content">
@@ -253,7 +270,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <SiteFooter />
     </>
   );
 }

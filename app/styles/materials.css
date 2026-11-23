@@ -57,10 +57,16 @@
     flex: 0 0 auto;
 }
 
-.materials-heading-art svg {
+.materials-heading-art img {
     display: block;
     width: 100%;
     filter: drop-shadow(0 9px 10px rgba(32, 90, 63, .11));
+}
+
+.material-card-image {
+    max-width: 100%;
+    max-height: 118px;
+    object-fit: contain;
 }
 
 .materials-catalog {

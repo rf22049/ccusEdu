@@ -1,0 +1,680 @@
+[
+  {
+    "file": "industrial_nature_education/industrial_nature_education_01.png",
+    "width": 408,
+    "height": 260,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_02.png",
+    "width": 409,
+    "height": 249,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_03.png",
+    "width": 348,
+    "height": 263,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_04.png",
+    "width": 375,
+    "height": 220,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_05.png",
+    "width": 377,
+    "height": 195,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_06.png",
+    "width": 95,
+    "height": 81,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_07.png",
+    "width": 260,
+    "height": 239,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_08.png",
+    "width": 127,
+    "height": 89,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_09.png",
+    "width": 240,
+    "height": 164,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_10.png",
+    "width": 99,
+    "height": 113,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_11.png",
+    "width": 109,
+    "height": 123,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_12.png",
+    "width": 139,
+    "height": 176,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_13.png",
+    "width": 179,
+    "height": 162,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_14.png",
+    "width": 241,
+    "height": 145,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_15.png",
+    "width": 195,
+    "height": 192,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_16.png",
+    "width": 181,
+    "height": 171,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_17.png",
+    "width": 164,
+    "height": 181,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_18.png",
+    "width": 234,
+    "height": 159,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_19.png",
+    "width": 215,
+    "height": 152,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_20.png",
+    "width": 218,
+    "height": 141,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_21.png",
+    "width": 178,
+    "height": 165,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_22.png",
+    "width": 136,
+    "height": 102,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_23.png",
+    "width": 201,
+    "height": 116,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_24.png",
+    "width": 173,
+    "height": 106,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_25.png",
+    "width": 162,
+    "height": 96,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_26.png",
+    "width": 86,
+    "height": 100,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_27.png",
+    "width": 138,
+    "height": 106,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_28.png",
+    "width": 174,
+    "height": 118,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_29.png",
+    "width": 95,
+    "height": 94,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_30.png",
+    "width": 446,
+    "height": 126,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_31.png",
+    "width": 310,
+    "height": 128,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_32.png",
+    "width": 126,
+    "height": 80,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_33.png",
+    "width": 1536,
+    "height": 155,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_34.png",
+    "width": 353,
+    "height": 110,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "industrial_nature_education/industrial_nature_education_35.png",
+    "width": 280,
+    "height": 106,
+    "source_sheet": "industrial_nature_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_01.png",
+    "width": 387,
+    "height": 223,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_02.png",
+    "width": 262,
+    "height": 226,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_03.png",
+    "width": 273,
+    "height": 228,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_04.png",
+    "width": 267,
+    "height": 226,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_05.png",
+    "width": 367,
+    "height": 231,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_06.png",
+    "width": 460,
+    "height": 270,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_07.png",
+    "width": 410,
+    "height": 233,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_08.png",
+    "width": 312,
+    "height": 232,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_09.png",
+    "width": 308,
+    "height": 188,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_10.png",
+    "width": 244,
+    "height": 184,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_11.png",
+    "width": 243,
+    "height": 139,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_12.png",
+    "width": 95,
+    "height": 112,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_13.png",
+    "width": 126,
+    "height": 87,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_14.png",
+    "width": 108,
+    "height": 117,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_15.png",
+    "width": 181,
+    "height": 147,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_16.png",
+    "width": 233,
+    "height": 194,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_17.png",
+    "width": 217,
+    "height": 202,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_18.png",
+    "width": 223,
+    "height": 168,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_19.png",
+    "width": 253,
+    "height": 119,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_20.png",
+    "width": 141,
+    "height": 91,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_21.png",
+    "width": 143,
+    "height": 107,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_22.png",
+    "width": 191,
+    "height": 124,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_23.png",
+    "width": 140,
+    "height": 142,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_24.png",
+    "width": 124,
+    "height": 126,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_25.png",
+    "width": 237,
+    "height": 127,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_26.png",
+    "width": 100,
+    "height": 100,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_27.png",
+    "width": 192,
+    "height": 153,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_28.png",
+    "width": 194,
+    "height": 163,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_29.png",
+    "width": 206,
+    "height": 150,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_30.png",
+    "width": 183,
+    "height": 159,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_31.png",
+    "width": 145,
+    "height": 166,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_32.png",
+    "width": 180,
+    "height": 161,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_33.png",
+    "width": 230,
+    "height": 121,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "coco_game_education/coco_game_education_34.png",
+    "width": 185,
+    "height": 145,
+    "source_sheet": "coco_game_education"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_01.png",
+    "width": 438,
+    "height": 261,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_02.png",
+    "width": 378,
+    "height": 225,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_03.png",
+    "width": 389,
+    "height": 235,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_04.png",
+    "width": 333,
+    "height": 251,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_05.png",
+    "width": 199,
+    "height": 197,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_06.png",
+    "width": 292,
+    "height": 180,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_07.png",
+    "width": 126,
+    "height": 169,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_08.png",
+    "width": 218,
+    "height": 138,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_09.png",
+    "width": 132,
+    "height": 152,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_10.png",
+    "width": 149,
+    "height": 130,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_11.png",
+    "width": 157,
+    "height": 129,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_12.png",
+    "width": 174,
+    "height": 149,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_13.png",
+    "width": 186,
+    "height": 151,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_14.png",
+    "width": 186,
+    "height": 158,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_15.png",
+    "width": 186,
+    "height": 157,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_16.png",
+    "width": 174,
+    "height": 157,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_17.png",
+    "width": 114,
+    "height": 68,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_18.png",
+    "width": 155,
+    "height": 123,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_19.png",
+    "width": 137,
+    "height": 141,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_20.png",
+    "width": 153,
+    "height": 151,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_21.png",
+    "width": 114,
+    "height": 146,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_22.png",
+    "width": 133,
+    "height": 158,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_23.png",
+    "width": 146,
+    "height": 147,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_24.png",
+    "width": 202,
+    "height": 177,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_25.png",
+    "width": 134,
+    "height": 149,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_26.png",
+    "width": 194,
+    "height": 121,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_27.png",
+    "width": 188,
+    "height": 104,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_28.png",
+    "width": 146,
+    "height": 95,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_29.png",
+    "width": 180,
+    "height": 109,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_30.png",
+    "width": 256,
+    "height": 103,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_31.png",
+    "width": 260,
+    "height": 127,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_32.png",
+    "width": 209,
+    "height": 112,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_33.png",
+    "width": 93,
+    "height": 93,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_34.png",
+    "width": 129,
+    "height": 94,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_35.png",
+    "width": 80,
+    "height": 98,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_36.png",
+    "width": 115,
+    "height": 121,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_37.png",
+    "width": 99,
+    "height": 95,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_38.png",
+    "width": 155,
+    "height": 93,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_39.png",
+    "width": 269,
+    "height": 125,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_40.png",
+    "width": 122,
+    "height": 97,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_41.png",
+    "width": 375,
+    "height": 130,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_42.png",
+    "width": 320,
+    "height": 118,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_43.png",
+    "width": 302,
+    "height": 126,
+    "source_sheet": "ccus_process_nature"
+  },
+  {
+    "file": "ccus_process_nature/ccus_process_nature_44.png",
+    "width": 272,
+    "height": 114,
+    "source_sheet": "ccus_process_nature"
+  }
+]
