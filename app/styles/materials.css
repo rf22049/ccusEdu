@@ -300,6 +300,11 @@
     background: #fff3d4;
 }
 
+.material-placeholder-badge.is-uploaded {
+    color: #17684d;
+    background: #dcefe1;
+}
+
 .material-card-body h2 {
     margin: 9px 0 4px;
     color: #173a30;
@@ -440,6 +445,11 @@ html[data-theme="dark"] .material-category-badge {
 html[data-theme="dark"] .material-placeholder-badge {
     color: #f2d794;
     background: #55482b;
+}
+
+html[data-theme="dark"] .material-placeholder-badge.is-uploaded {
+    color: #c8efd5;
+    background: #285342;
 }
 
 html[data-theme="dark"] .material-card-footer {

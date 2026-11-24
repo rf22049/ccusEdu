@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import { recordQuizResult } from "@/lib/analytics";
 import { useSiteContent, type QuizQuestion } from "@/lib/site-content";
 
 type QuizMode = "practice" | "evaluation";
@@ -10,12 +11,13 @@ export default function Quiz() {
   const [category, setCategory] = useState("all");
   const [count, setCount] = useState(5);
   const [mode, setMode] = useState<QuizMode>("practice");
+  const [randomizeAnswers, setRandomizeAnswers] = useState(false);
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<(number | null)[]>([]);
   const [current, setCurrent] = useState(0);
   const [finished, setFinished] = useState(false);
   const [showReview, setShowReview] = useState(false);
-  const { questions: questionBank } = useSiteContent();
+  const { questions: questionBank, questionCategories } = useSiteContent();
 
   const available = useMemo(
     () => questionBank.filter((question) => category === "all" || question.category === category),
@@ -31,7 +33,19 @@ export default function Quiz() {
 
   function startQuiz(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const newQuestions = available.slice(0, count);
+    const newQuestions = available.slice(0, count).map((question) => {
+      if (!randomizeAnswers) return question;
+      const options = question.options.map((option, index) => ({ option, index }));
+      for (let index = options.length - 1; index > 0; index -= 1) {
+        const swapIndex = Math.floor(Math.random() * (index + 1));
+        [options[index], options[swapIndex]] = [options[swapIndex], options[index]];
+      }
+      return {
+        ...question,
+        options: options.map(({ option }) => option),
+        correctIndex: options.findIndex(({ index }) => index === question.correctIndex),
+      };
+    });
     setQuestions(newQuestions);
     setAnswers(Array(newQuestions.length).fill(null));
     setCurrent(0);
@@ -43,6 +57,7 @@ export default function Quiz() {
     setCategory("all");
     setCount(5);
     setMode("practice");
+    setRandomizeAnswers(false);
     setFinished(false);
     setQuestions([]);
     setAnswers([]);
@@ -82,17 +97,18 @@ export default function Quiz() {
                       if (event.target.value !== "all") setCount(5);
                     }}>
                       <option value="all">Semua Materi</option>
-                      <option value="basics">Konsep Dasar CCUS</option>
-                      <option value="process">Rantai Proses CCUS</option>
+                      {questionCategories.map((questionCategory) => (
+                        <option value={questionCategory.id} key={questionCategory.id}>{questionCategory.name}</option>
+                      ))}
                     </select>
                   </label>
                   <label className="quiz-field">
                     <span>Jumlah Soal</span>
                     <select value={count} onChange={(event) => setCount(Number(event.target.value))}>
                       <option value={5}>5 Soal</option>
-                      <option value={10} disabled={category !== "all"}>10 Soal</option>
+                      <option value={10} disabled={available.length < 10}>10 Soal</option>
                     </select>
-                    {category !== "all" && <small>Kategori ini memiliki 5 soal.</small>}
+                    {available.length < count && <small>Hanya {available.length} soal tersedia. Semua soal yang tersedia akan digunakan.</small>}
                   </label>
                 </div>
                 <fieldset className="quiz-mode">
@@ -109,6 +125,14 @@ export default function Quiz() {
                   </label>
                 </fieldset>
               </div>
+              <label className="quiz-randomize-option">
+                <input
+                  type="checkbox"
+                  checked={randomizeAnswers}
+                  onChange={(event) => setRandomizeAnswers(event.target.checked)}
+                />
+                <span>Acak urutan pilihan jawaban</span>
+              </label>
               <button className="quiz-button quiz-button-primary quiz-start-button" type="submit">
                 Mulai Ujian <span aria-hidden="true">→</span>
               </button>
@@ -158,8 +182,18 @@ export default function Quiz() {
                 type="button"
                 disabled={selectedAnswer === null || selectedAnswer === undefined}
                 onClick={() => {
-                  if (current === questions.length - 1) setFinished(true);
-                  else setCurrent((index) => index + 1);
+                  if (current === questions.length - 1) {
+                    recordQuizResult({
+                      mode,
+                      score,
+                      total: questions.length,
+                      questions: questions.map((question, index) => ({
+                        text: question.question,
+                        correct: answers[index] === question.correctIndex,
+                      })),
+                    });
+                    setFinished(true);
+                  } else setCurrent((index) => index + 1);
                 }}
               >
                 {current === questions.length - 1 ? "Lihat Hasil" : "Lanjut"} <span aria-hidden="true">→</span>

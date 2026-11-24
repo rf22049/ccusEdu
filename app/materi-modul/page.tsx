@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { recordResourceDownload } from "@/lib/analytics";
+import { getResourceFile } from "@/lib/resource-files";
 import {
   useSiteContent,
   type ResourceCategory,
@@ -24,7 +26,38 @@ export default function MaterialsPage() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [format, setFormat] = useState("all");
+  const [uploadedFiles, setUploadedFiles] = useState<Record<string, { url: string; name: string }>>({});
+  const [fileError, setFileError] = useState("");
   const { resources } = useSiteContent();
+  useEffect(() => {
+    let cancelled = false;
+    const objectUrls: string[] = [];
+    Promise.all(resources.map(async (resource) => {
+      const file = await getResourceFile(resource.slug);
+      return file ? { slug: resource.slug, file } : null;
+    }))
+      .then((files) => {
+        if (cancelled) return;
+        const nextFiles: Record<string, { url: string; name: string }> = {};
+        files.forEach((entry) => {
+          if (!entry) return;
+          const url = URL.createObjectURL(entry.file.blob);
+          objectUrls.push(url);
+          nextFiles[entry.slug] = { url, name: entry.file.name };
+        });
+        setUploadedFiles(nextFiles);
+        setFileError("");
+      })
+      .catch((error: unknown) => {
+        if (!cancelled) {
+          setFileError(error instanceof Error ? error.message : "File materi tidak dapat dibaca.");
+        }
+      });
+    return () => {
+      cancelled = true;
+      objectUrls.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, [resources]);
   const filtered = useMemo(() => {
     const term = search.trim().toLocaleLowerCase("id");
     return resources.filter((material) => (
@@ -88,9 +121,9 @@ export default function MaterialsPage() {
             </label>
           </div>
           <p className="materials-placeholder-notice" role="note">
-            File unduhan saat ini adalah placeholder sementara. Format di kartu
-            menunjukkan format materi final yang akan tersedia.
+            File yang diunggah di admin tersedia di browser ini saja. Materi tanpa unggahan tetap menggunakan file placeholder.
           </p>
+          {fileError && <p className="materials-placeholder-notice" role="alert">{fileError}</p>}
           <p className="materials-result-count" aria-live="polite">
             Menampilkan {filtered.length} dari {resources.length} materi
           </p>
@@ -134,17 +167,18 @@ export default function MaterialsPage() {
                 <div className="material-card-body">
                   <div className="material-card-meta">
                     <span className="material-category-badge">{categories[material.category]}</span>
-                    <span className="material-placeholder-badge">Placeholder</span>
+                    <span className={`material-placeholder-badge${uploadedFiles[material.slug] ? " is-uploaded" : ""}`}>{uploadedFiles[material.slug] ? "Diunggah" : "Placeholder"}</span>
                   </div>
                   <h2>{material.title}</h2>
                   <p>{material.description}</p>
                   <div className="material-card-footer">
-                    <span className="material-file-note">File sementara · TXT</span>
+                    <span className="material-file-note">{uploadedFiles[material.slug]?.name ?? "File placeholder"}</span>
                     <a
                       className="material-download-button"
-                      href={`/downloads/materials/${material.filename}`}
-                      download
-                      aria-label={`Unduh placeholder ${material.title}`}
+                      href={uploadedFiles[material.slug]?.url ?? `/downloads/materials/${material.filename}`}
+                      download={material.filename || uploadedFiles[material.slug]?.name}
+                      aria-label={`Unduh ${material.title}`}
+                      onClick={() => recordResourceDownload(material.slug)}
                     >
                       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M12 3v12m0 0 5-5m-5 5-5-5M4 17v3h16v-3" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />

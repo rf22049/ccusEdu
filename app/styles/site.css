@@ -4246,3 +4246,1689 @@ html {
         padding: 7px 0;
     }
 }
+
+/* ========================================
+   ADMIN DASHBOARD
+======================================== */
+
+.admin-page {
+    min-height: 720px;
+    padding: 32px 0 68px;
+    background: #f4f8f5;
+}
+
+.admin-hero,
+.admin-dashboard-grid,
+.admin-content-layout,
+.admin-bank-layout,
+.admin-results-layout {
+    animation: admin-enter .28s ease both;
+}
+
+.admin-dashboard-grid,
+.admin-content-layout,
+.admin-bank-layout,
+.admin-results-layout {
+    animation-delay: .04s;
+}
+
+@keyframes admin-enter {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.admin-shell {
+    max-width: 1040px;
+}
+
+.admin-hero {
+    margin-bottom: 18px;
+}
+
+.admin-kicker {
+    display: block;
+    margin-bottom: 7px;
+    color: #2d8062;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+.admin-hero-row,
+.admin-card-heading,
+.admin-editor-footer,
+.admin-mini-metrics,
+.admin-metrics,
+.admin-resource-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-hero-row h1 {
+    margin: 0 0 5px;
+    color: #102c28;
+    font: 800 clamp(28px, 3.6vw, 38px)/1.1 "Manrope", sans-serif;
+    letter-spacing: -1.3px;
+}
+
+.admin-hero-row p {
+    max-width: 680px;
+    margin: 0;
+    color: #607068;
+    font-size: 12px;
+}
+
+.admin-hero-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.admin-button {
+    min-height: 34px;
+    border: 0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 10px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.admin-button.primary {
+    color: #fff;
+    background: #08734f;
+}
+
+.admin-button.secondary {
+    border: 1px solid #dbe7df;
+    color: #456157;
+    background: #fff;
+}
+
+.admin-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 17px;
+}
+
+.admin-data-scope {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: #718078;
+    font-size: 9px;
+    text-align: right;
+}
+
+.admin-metric,
+.admin-status-card,
+.admin-progress-card,
+.admin-table-card,
+.admin-download-card,
+.admin-category-card,
+.admin-editor-card,
+.admin-question-table,
+.admin-history-card,
+.admin-top-answers,
+.admin-resource-strip,
+.admin-completion,
+.admin-difficulty,
+.admin-result-metrics div {
+    border: 1px solid #dfebe3;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(36, 86, 61, .055);
+}
+
+.admin-metric {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 5px 8px;
+    min-height: 74px;
+    padding: 13px;
+    border-radius: 12px;
+}
+
+.admin-metric span {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #697b72;
+    font-size: 9px;
+}
+
+.admin-metric strong {
+    color: #173f32;
+    font-size: 20px;
+}
+
+.admin-metric small {
+    align-self: end;
+    color: #16815b;
+    font-size: 8px;
+}
+
+.admin-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.admin-mini-metrics {
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.admin-mini-metrics > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 28px;
+    padding: 6px 9px;
+    border: 1px solid #e1ebe4;
+    border-radius: 8px;
+    color: #577066;
+    background: #fff;
+    font-size: 9px;
+}
+
+.admin-dashboard-grid,
+.admin-content-layout,
+.admin-bank-layout,
+.admin-results-layout {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 12px;
+}
+
+.admin-dashboard-grid {
+    grid-template-columns: 220px minmax(0, 1fr) 220px;
+}
+
+.admin-status-card,
+.admin-progress-card,
+.admin-table-card,
+.admin-download-card,
+.admin-category-card,
+.admin-question-table,
+.admin-history-card,
+.admin-top-answers,
+.admin-resource-strip {
+    border-radius: 13px;
+}
+
+.admin-status-card {
+    grid-row: 1 / 3;
+    padding: 12px;
+}
+
+.admin-status-card h2,
+.admin-progress-card h2,
+.admin-table-card h2,
+.admin-download-card h2,
+.admin-category-card h2,
+.admin-question-table h2,
+.admin-history-card h2,
+.admin-top-answers h2,
+.admin-resource-strip strong {
+    margin: 0;
+    color: #18382e;
+    font-size: 12px;
+}
+
+.admin-status-card button,
+.admin-category-card button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+    border-radius: 7px;
+    padding: 8px;
+    color: #66766f;
+    background: transparent;
+    font-size: 9px;
+    cursor: pointer;
+}
+
+.admin-status-card button.active,
+.admin-status-card button:hover,
+.admin-category-card button.active {
+    color: #fff;
+    background: #08734f;
+}
+
+.admin-status-card button strong {
+    color: inherit;
+    font-size: 8px;
+}
+
+.admin-progress-card {
+    grid-column: 2;
+    padding: 14px;
+}
+
+.admin-card-heading h2,
+.admin-card-heading p,
+.admin-table-card p,
+.admin-download-card p,
+.admin-top-answers p,
+.admin-resource-strip p {
+    margin: 3px 0 0;
+}
+
+.admin-card-heading p,
+.admin-table-card p,
+.admin-download-card p,
+.admin-top-answers p,
+.admin-resource-strip p {
+    color: #718078;
+    font-size: 9px;
+}
+
+.admin-card-heading > span,
+.admin-card-heading > b {
+    color: #08734f;
+    background: #e8f4eb;
+    border-radius: 999px;
+    padding: 5px 8px;
+    font-size: 8px;
+}
+
+.admin-progress-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 5px;
+    margin-top: 10px;
+    color: #52665d;
+    font-size: 9px;
+}
+
+.admin-progress-row strong {
+    color: #406054;
+}
+
+.admin-progress-row div,
+.admin-completion div,
+.admin-difficulty div {
+    grid-column: 1 / -1;
+    height: 5px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: #edf2ef;
+}
+
+.admin-progress-row div span,
+.admin-completion div span,
+.admin-difficulty div span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: #08734f;
+}
+
+.admin-progress-row:nth-of-type(even) div span,
+.admin-progress-row:nth-of-type(5) div span {
+    background: #9e7238;
+}
+
+.admin-table-card {
+    grid-column: 2;
+    padding: 14px;
+}
+
+.admin-table {
+    margin-top: 9px;
+}
+
+.admin-table > div,
+.admin-history-card > div,
+.admin-question-table > button {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 55px 42px 42px;
+    align-items: center;
+    gap: 7px;
+    min-height: 36px;
+    border-bottom: 1px solid #edf2ef;
+    color: #52665d;
+    font-size: 8px;
+}
+
+.admin-table > div {
+    grid-template-columns: minmax(0, 1fr) 55px auto;
+}
+
+.admin-empty {
+    margin: 8px 0;
+    color: #718078;
+    font-size: 10px;
+}
+
+.admin-download-card {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    padding: 14px;
+}
+
+.admin-download-card > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    border: 1px solid #edf2ef;
+    border-radius: 8px;
+    padding: 9px;
+}
+
+.admin-download-card > div span {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-download-card > div strong,
+.admin-download-card > div small {
+    font-size: 8px;
+}
+
+.admin-download-card > div small {
+    color: #809087;
+}
+
+.admin-download-card > div b {
+    color: #08734f;
+    border-radius: 999px;
+    background: #e8f4eb;
+    padding: 4px 6px;
+    font-size: 7px;
+}
+
+.admin-card-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 10px;
+    color: #fff;
+    background: #08734f;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.admin-content-layout,
+.admin-bank-layout,
+.admin-results-layout {
+    grid-template-columns: 190px minmax(0, 1fr);
+}
+
+.admin-sidebar,
+.admin-category-card {
+    border: 1px solid #dfebe3;
+    border-radius: 13px;
+    padding: 12px;
+    background: #fff;
+}
+
+.admin-sidebar h2,
+.admin-category-card h2 {
+    margin: 0 0 8px;
+    color: #18382e;
+    font-size: 11px;
+}
+
+.admin-sidebar button {
+    width: 100%;
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 0;
+    border-radius: 7px;
+    padding: 7px 8px;
+    color: #65776f;
+    background: transparent;
+    font-size: 9px;
+    cursor: pointer;
+}
+
+.admin-sidebar button.active {
+    color: #fff;
+    background: #08734f;
+}
+
+.admin-completion,
+.admin-difficulty {
+    margin-top: 12px;
+    border-radius: 9px;
+    padding: 10px;
+}
+
+.admin-completion {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.admin-completion strong,
+.admin-difficulty strong {
+    color: #52665d;
+    font-size: 8px;
+}
+
+.admin-completion b,
+.admin-difficulty b {
+    color: #08734f;
+}
+
+.admin-completion div,
+.admin-difficulty div {
+    grid-column: 1 / -1;
+    margin: 7px 0 4px;
+}
+
+.admin-completion small,
+.admin-difficulty small {
+    grid-column: 1 / -1;
+    color: #87958e;
+    font-size: 7px;
+}
+
+.admin-content-main,
+.admin-question-editor,
+.admin-results-main {
+    min-width: 0;
+}
+
+.admin-content-heading {
+    margin-bottom: 8px;
+}
+
+.admin-content-heading > div > span,
+.admin-card-heading > div > span,
+.admin-editor-topline strong {
+    color: #2d8062;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.admin-editor-card {
+    border-radius: 13px;
+    padding: 14px;
+}
+
+.admin-editor-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.admin-editor-topline button {
+    border: 0;
+    border-radius: 6px;
+    padding: 5px 7px;
+    color: #08734f;
+    background: #eaf4ec;
+    font-size: 8px;
+}
+
+.admin-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+.admin-form-grid label,
+.admin-slide-fields label,
+.admin-explanation,
+.admin-takeaway {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.admin-form-grid label.full,
+.admin-slide-fields,
+.admin-explanation {
+    grid-column: 1 / -1;
+}
+
+.admin-form-grid label > span,
+.admin-slide-fields label > span,
+.admin-explanation > span,
+.admin-takeaway > span {
+    color: #607068;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.admin-form-grid input,
+.admin-form-grid textarea,
+.admin-form-grid select,
+.admin-slide-fields input,
+.admin-slide-fields textarea,
+.admin-explanation textarea,
+.admin-takeaway input,
+.admin-options-editor input[type="text"] {
+    width: 100%;
+    border: 1px solid #dfe7e2;
+    border-radius: 7px;
+    padding: 8px 9px;
+    color: #30483e;
+    background: #fff;
+    font: 500 9px "Manrope", sans-serif;
+}
+
+.admin-form-grid textarea,
+.admin-slide-fields textarea,
+.admin-explanation textarea {
+    resize: vertical;
+}
+
+.admin-slide-tabs {
+    display: flex;
+    gap: 5px;
+    margin-top: 12px;
+}
+
+.admin-slide-tabs button {
+    border: 1px solid #e1e9e4;
+    border-radius: 7px;
+    padding: 6px 8px;
+    color: #75847d;
+    background: #fff;
+    font-size: 8px;
+}
+
+.admin-slide-tabs button.active {
+    border-color: #08734f;
+    color: #08734f;
+}
+
+.admin-slide-fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 9px;
+}
+
+.admin-takeaway {
+    border: 1px solid #edf2ef;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.admin-editor-footer {
+    justify-content: flex-end;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.admin-editor-footer small {
+    margin-right: auto;
+    color: #87958e;
+    font-size: 8px;
+}
+
+.admin-resource-strip {
+    margin-top: 10px;
+    padding: 12px;
+}
+
+.admin-resource-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.admin-resource-cards button {
+    display: grid;
+    gap: 3px;
+    min-height: 80px;
+    border: 1px solid #e1e9e4;
+    border-radius: 9px;
+    padding: 8px;
+    text-align: left;
+    background: #fff;
+}
+
+.admin-resource-cards button b {
+    color: #08734f;
+    font-size: 8px;
+}
+
+.admin-resource-cards button strong {
+    color: #354d42;
+    font-size: 9px;
+}
+
+.admin-resource-cards button span {
+    color: #7d8d85;
+    font-size: 8px;
+}
+
+.admin-resource-cards.large {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 12px;
+}
+
+.admin-resource-cards.large button.active {
+    border-color: #08734f;
+    background: #f4faf6;
+}
+
+.admin-upload-row {
+    display: grid;
+    gap: 7px;
+    margin-top: 12px;
+    border: 1px dashed #bfd5c5;
+    border-radius: 9px;
+    padding: 11px;
+    color: #52665d;
+    font-size: 10px;
+}
+
+.admin-upload-row label {
+    display: grid;
+    gap: 6px;
+    font-weight: 700;
+}
+
+.admin-upload-row input[type="file"] {
+    max-width: 100%;
+    font: inherit;
+}
+
+.admin-upload-row p {
+    margin: 0;
+    color: #718078;
+}
+
+.admin-category-card button b {
+    min-width: 24px;
+    border-radius: 999px;
+    padding: 3px 5px;
+    background: #edf2ef;
+    text-align: center;
+}
+
+.admin-category-card button.active b {
+    background: rgba(255, 255, 255, .18);
+}
+
+.admin-new-category {
+    display: grid;
+    gap: 8px;
+    margin-top: 16px;
+    border-top: 1px solid #e3ebe3;
+    padding-top: 14px;
+}
+
+.admin-new-category label {
+    color: #405d4d;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.admin-new-category input {
+    min-height: 42px;
+    width: 100%;
+    border: 1px solid #dfe7e2;
+    border-radius: 11px;
+    padding: 9px 11px;
+    color: #233f35;
+    background: #fbfdf8;
+    font: 500 13px/1.45 "Manrope", sans-serif;
+}
+
+.admin-new-category .admin-button {
+    width: 100%;
+}
+
+.admin-question-editor .admin-card-heading,
+.admin-results-main .admin-card-heading {
+    margin-bottom: 8px;
+}
+
+.admin-live-badge {
+    color: #08734f;
+}
+
+.admin-options-editor {
+    display: grid;
+    gap: 6px;
+    margin: 10px 0;
+}
+
+.admin-options-editor label {
+    display: grid;
+    grid-template-columns: 18px 20px 1fr auto;
+    align-items: center;
+    gap: 6px;
+    min-height: 38px;
+    border: 1px solid #e1e9e4;
+    border-radius: 8px;
+    padding: 6px 8px;
+}
+
+.admin-options-editor label.correct {
+    border-color: #9ec9ae;
+    background: #f8fcf9;
+}
+
+.admin-options-editor label input[type="radio"] {
+    accent-color: #08734f;
+}
+
+.admin-options-editor label input[type="text"],
+.admin-options-editor label > input:not([type="radio"]) {
+    border: 0;
+    outline: 0;
+    color: #40584e;
+    background: transparent;
+    font-size: 9px;
+}
+
+.admin-options-editor label b {
+    color: #607068;
+    font-size: 9px;
+}
+
+.admin-options-editor label small {
+    color: #08734f;
+    background: #e8f4eb;
+    border-radius: 999px;
+    padding: 4px 6px;
+    font-size: 7px;
+}
+
+.admin-explanation {
+    margin-top: 8px;
+}
+
+.admin-question-table {
+    margin-top: 10px;
+    padding: 12px;
+}
+
+.admin-question-table > button {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #edf2ef;
+    background: transparent;
+    cursor: pointer;
+}
+
+.admin-question-table > button span,
+.admin-question-table > button b,
+.admin-question-table > button small {
+    font-size: 8px;
+}
+
+.admin-question-table > button b {
+    color: #08734f;
+}
+
+.admin-question-table > button small {
+    color: #08734f;
+}
+
+.admin-result-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.admin-result-metrics div {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.admin-result-metrics span {
+    grid-column: 1 / -1;
+    color: #75877e;
+    font-size: 8px;
+}
+
+.admin-result-metrics strong {
+    color: #173f32;
+    font-size: 17px;
+}
+
+.admin-result-metrics small {
+    color: #08734f;
+    font-size: 8px;
+}
+
+.admin-top-answers {
+    margin-top: 10px;
+    padding: 12px;
+}
+
+.admin-answer-row {
+    display: grid;
+    grid-template-columns: 28px 1fr 58px 54px;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    border: 1px solid #edf2ef;
+    border-radius: 8px;
+    margin-top: 7px;
+    padding: 7px;
+}
+
+.admin-answer-row > b {
+    color: #08734f;
+    font-size: 9px;
+}
+
+.admin-answer-row > div {
+    min-width: 0;
+}
+
+.admin-answer-row strong {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #53685e;
+    font-size: 8px;
+}
+
+.admin-answer-row > div div {
+    height: 4px;
+    margin-top: 6px;
+    border-radius: 99px;
+    background: #edf2ef;
+}
+
+.admin-answer-row > div div span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: #08734f;
+}
+
+.admin-answer-row small {
+    color: #08734f;
+    font-size: 8px;
+}
+
+.admin-answer-row button {
+    border: 1px solid #dfe8e2;
+    border-radius: 6px;
+    padding: 6px;
+    color: #08734f;
+    background: #fff;
+    font-size: 8px;
+}
+
+.admin-history-card {
+    margin-top: 10px;
+    padding: 12px;
+}
+
+.admin-history-card h2 {
+    margin: 0 0 7px;
+    color: #18382e;
+    font-size: 12px;
+}
+
+.admin-history-card > div {
+    grid-template-columns: 1fr 1fr 90px 90px 35px;
+}
+
+.admin-history-card > div b {
+    color: #08734f;
+}
+
+.admin-toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 30;
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: #fff;
+    background: #08734f;
+    box-shadow: 0 10px 24px rgba(19, 82, 55, .22);
+    font-size: 11px;
+}
+
+html[data-theme="dark"] .admin-page {
+    background: #102b25;
+}
+
+html[data-theme="dark"] .admin-hero-row h1,
+html[data-theme="dark"] .admin-status-card h2,
+html[data-theme="dark"] .admin-progress-card h2,
+html[data-theme="dark"] .admin-table-card h2,
+html[data-theme="dark"] .admin-download-card h2,
+html[data-theme="dark"] .admin-history-card h2,
+html[data-theme="dark"] .admin-category-card h2,
+html[data-theme="dark"] .admin-sidebar h2,
+html[data-theme="dark"] .admin-resource-strip strong {
+    color: #edf7f1;
+}
+
+html[data-theme="dark"] .admin-metric,
+html[data-theme="dark"] .admin-status-card,
+html[data-theme="dark"] .admin-progress-card,
+html[data-theme="dark"] .admin-table-card,
+html[data-theme="dark"] .admin-download-card,
+html[data-theme="dark"] .admin-sidebar,
+html[data-theme="dark"] .admin-category-card,
+html[data-theme="dark"] .admin-editor-card,
+html[data-theme="dark"] .admin-question-table,
+html[data-theme="dark"] .admin-history-card,
+html[data-theme="dark"] .admin-top-answers,
+html[data-theme="dark"] .admin-resource-strip {
+    border-color: #315648;
+    background: #17372f;
+}
+
+html[data-theme="dark"] .admin-data-scope,
+html[data-theme="dark"] .admin-empty,
+html[data-theme="dark"] .admin-upload-row,
+html[data-theme="dark"] .admin-upload-row p {
+    color: #b9d1c5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .admin-hero,
+    .admin-dashboard-grid,
+    .admin-content-layout,
+    .admin-bank-layout,
+    .admin-results-layout {
+        animation: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .admin-metrics {
+        grid-template-columns: 1fr 1fr;
+    }
+    .admin-dashboard-grid {
+        grid-template-columns: 180px 1fr;
+    }
+    .admin-download-card {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+    .admin-content-layout,
+    .admin-bank-layout,
+    .admin-results-layout {
+        grid-template-columns: 160px minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .admin-page {
+        padding-top: 22px;
+    }
+    .admin-hero-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .admin-hero-actions {
+        width: 100%;
+    }
+    .admin-metrics,
+    .admin-dashboard-grid,
+    .admin-content-layout,
+    .admin-bank-layout,
+    .admin-results-layout,
+    .admin-form-grid,
+    .admin-result-metrics {
+        grid-template-columns: 1fr;
+    }
+    .admin-status-card,
+    .admin-progress-card,
+    .admin-table-card,
+    .admin-download-card,
+    .admin-sidebar,
+    .admin-category-card {
+        grid-column: 1;
+        grid-row: auto;
+    }
+    .admin-resource-cards,
+    .admin-resource-cards.large {
+        grid-template-columns: 1fr;
+    }
+    .admin-table > div,
+    .admin-history-card > div {
+        grid-template-columns: 1fr 50px;
+    }
+    .admin-history-card > div small,
+    .admin-history-card > div span:nth-of-type(2) {
+        display: none;
+    }
+    .admin-answer-row {
+        grid-template-columns: 24px 1fr 48px;
+    }
+    .admin-answer-row button {
+        display: none;
+    }
+}
+
+.admin-page {
+    background:
+        radial-gradient(circle at 8% 2%, rgba(255, 222, 141, .24), transparent 16%),
+        radial-gradient(circle at 96% 28%, rgba(147, 203, 105, .2), transparent 18%),
+        linear-gradient(145deg, #f8fbf2, #edf7ed 55%, #f8f2e7);
+    color: #233f35;
+}
+
+.admin-shell {
+    max-width: 1180px;
+}
+
+.admin-hero {
+    padding: 22px;
+    border: 2px solid #e3eedb;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .86);
+    box-shadow: 0 12px 30px rgba(48, 96, 67, .08);
+}
+
+.admin-kicker {
+    display: inline-flex;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: #594b1c;
+    background: #fff0c8;
+    font-size: 11px;
+}
+
+.admin-hero-row h1 {
+    font-size: clamp(26px, 3vw, 36px);
+}
+
+.admin-hero-row p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.admin-button {
+    min-height: 43px;
+    border-radius: 14px;
+    padding: 10px 15px;
+    font-size: 13px;
+    transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.admin-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(27, 85, 58, .14);
+}
+
+.admin-button.primary {
+    background: #187653;
+}
+
+.admin-button.secondary {
+    border-color: #d3e2d4;
+    color: #355a49;
+    background: #f7fbf5;
+}
+
+.admin-button.danger {
+    border: 1px solid #f0caca;
+    color: #8d3939;
+    background: #fff3f1;
+}
+
+.admin-metric,
+.admin-status-card,
+.admin-progress-card,
+.admin-table-card,
+.admin-download-card,
+.admin-category-card,
+.admin-editor-card,
+.admin-question-table,
+.admin-history-card,
+.admin-top-answers,
+.admin-resource-strip,
+.admin-completion,
+.admin-difficulty,
+.admin-result-metrics div {
+    border-color: #dce9da;
+    border-radius: 18px;
+    box-shadow: 0 7px 20px rgba(42, 87, 60, .07);
+}
+
+.admin-metric {
+    min-height: 92px;
+    padding: 16px;
+}
+
+.admin-metric span,
+.admin-mini-metrics > span {
+    color: #536a5e;
+    font-size: 12px;
+}
+
+.admin-metric strong {
+    color: #174b37;
+    font-size: 25px;
+}
+
+.admin-metric small,
+.admin-data-scope {
+    color: #55725f;
+    font-size: 11px;
+}
+
+.admin-icon {
+    width: 19px;
+    height: 19px;
+}
+
+.admin-mini-metrics {
+    flex-wrap: wrap;
+}
+
+.admin-mini-metrics > span {
+    min-height: 38px;
+    padding: 8px 12px;
+    border-color: #dce9da;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.admin-dashboard-grid,
+.admin-content-layout,
+.admin-bank-layout,
+.admin-results-layout {
+    gap: 16px;
+}
+
+.admin-status-card,
+.admin-category-card,
+.admin-sidebar,
+.admin-progress-card,
+.admin-table-card,
+.admin-download-card,
+.admin-editor-card,
+.admin-question-table,
+.admin-top-answers,
+.admin-history-card,
+.admin-resource-strip {
+    padding: 18px;
+}
+
+.admin-status-card h2,
+.admin-progress-card h2,
+.admin-table-card h2,
+.admin-download-card h2,
+.admin-category-card h2,
+.admin-question-table h2,
+.admin-history-card h2,
+.admin-top-answers h2,
+.admin-sidebar h2 {
+    font-size: 16px;
+}
+
+.admin-status-card button,
+.admin-category-card button,
+.admin-sidebar button {
+    min-height: 44px;
+    border-radius: 12px;
+    padding: 9px 11px;
+    font-size: 13px;
+}
+
+.admin-status-card button strong,
+.admin-category-card button b {
+    font-size: 12px;
+}
+
+.admin-card-heading p,
+.admin-table-card p,
+.admin-download-card p,
+.admin-top-answers p,
+.admin-resource-strip p {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.admin-card-heading > span,
+.admin-card-heading > b {
+    font-size: 11px;
+}
+
+.admin-progress-row,
+.admin-table > div,
+.admin-history-card > div {
+    min-height: 44px;
+    font-size: 12px;
+}
+
+.admin-download-card > div strong,
+.admin-download-card > div small {
+    font-size: 11px;
+}
+
+.admin-download-card > div b {
+    font-size: 11px;
+}
+
+.admin-card-button {
+    min-height: 43px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.admin-sidebar h2,
+.admin-category-card h2 {
+    margin-bottom: 12px;
+}
+
+.admin-sidebar button .admin-icon {
+    flex: 0 0 auto;
+}
+
+.admin-completion strong,
+.admin-difficulty strong,
+.admin-completion small,
+.admin-difficulty small {
+    font-size: 11px;
+}
+
+.admin-completion b,
+.admin-difficulty b {
+    font-size: 17px;
+}
+
+.admin-content-heading > div > span,
+.admin-card-heading > div > span,
+.admin-editor-topline strong {
+    font-size: 11px;
+}
+
+.admin-editor-card {
+    padding: 20px;
+}
+
+.admin-editor-topline button,
+.admin-slide-tabs button {
+    min-height: 38px;
+    border-radius: 10px;
+    padding: 8px 11px;
+    font-size: 12px;
+}
+
+.admin-form-grid {
+    gap: 13px;
+}
+
+.admin-form-grid label > span,
+.admin-slide-fields label > span,
+.admin-explanation > span,
+.admin-takeaway > span {
+    color: #405d4d;
+    font-size: 12px;
+}
+
+.admin-form-grid input,
+.admin-form-grid textarea,
+.admin-form-grid select,
+.admin-slide-fields input,
+.admin-slide-fields textarea,
+.admin-explanation textarea,
+.admin-takeaway input,
+.admin-options-editor input[type="text"],
+.admin-options-editor label > input:not([type="radio"]) {
+    min-height: 43px;
+    border-radius: 11px;
+    padding: 10px 12px;
+    color: #233f35;
+    background: #fbfdf8;
+    font: 500 14px/1.45 "Manrope", sans-serif;
+}
+
+.admin-form-grid textarea,
+.admin-slide-fields textarea,
+.admin-explanation textarea {
+    min-height: 90px;
+}
+
+.admin-slide-tabs {
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.admin-editor-footer {
+    flex-wrap: wrap;
+}
+
+.admin-editor-footer small,
+.admin-resource-cards button span {
+    color: #536d5e;
+    font-size: 11px;
+}
+
+.admin-resource-cards {
+    gap: 10px;
+}
+
+.admin-resource-cards button {
+    min-height: 95px;
+    border-color: #dce9da;
+    border-radius: 14px;
+    padding: 12px;
+    background: #fbfdf8;
+    cursor: pointer;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.admin-resource-cards button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(42, 87, 60, .1);
+}
+
+.admin-resource-cards button b,
+.admin-resource-cards button strong {
+    font-size: 12px;
+}
+
+.admin-resource-cards.large button.active {
+    background: #e8f5e8;
+}
+
+.admin-upload-row {
+    border-radius: 14px;
+    padding: 15px;
+    font-size: 13px;
+}
+
+.admin-upload-row label {
+    font-size: 13px;
+}
+
+.admin-upload-row input[type="file"] {
+    min-height: 42px;
+    font-size: 13px;
+}
+
+.admin-options-editor {
+    gap: 9px;
+    margin: 14px 0;
+}
+
+.admin-options-editor label {
+    min-height: 48px;
+    grid-template-columns: 22px 26px 1fr auto;
+    gap: 9px;
+    border-color: #dce9da;
+    border-radius: 12px;
+    padding: 8px 11px;
+}
+
+.admin-options-editor label.correct {
+    border-color: #9bcba5;
+    background: #eef8eb;
+}
+
+.admin-options-editor label b {
+    font-size: 12px;
+}
+
+.admin-options-editor label small {
+    font-size: 10px;
+}
+
+.admin-question-table {
+    margin-top: 14px;
+}
+
+.admin-question-table > button {
+    min-height: 50px;
+    border-radius: 9px;
+    font-size: 12px;
+}
+
+.admin-question-table > button span,
+.admin-question-table > button b,
+.admin-question-table > button small {
+    font-size: 11px;
+}
+
+.admin-question-table > button.active {
+    background: #f2f8e9;
+}
+
+.admin-result-metrics div {
+    min-height: 88px;
+    padding: 13px;
+}
+
+.admin-result-metrics span,
+.admin-result-metrics small {
+    font-size: 11px;
+}
+
+.admin-result-metrics strong {
+    font-size: 23px;
+}
+
+.admin-answer-row {
+    min-height: 62px;
+    grid-template-columns: 32px minmax(0, 1fr) 120px 88px;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.admin-answer-row > b,
+.admin-answer-row strong,
+.admin-answer-row small,
+.admin-answer-row button {
+    font-size: 11px;
+}
+
+.admin-answer-row button {
+    min-height: 36px;
+    border-radius: 10px;
+}
+
+.admin-history-card > div {
+    grid-template-columns: minmax(100px, 1fr) 1fr 100px 150px 48px;
+    gap: 10px;
+}
+
+.admin-empty {
+    font-size: 13px;
+}
+
+.admin-empty-editor {
+    display: grid;
+    justify-items: start;
+    gap: 12px;
+}
+
+.admin-empty-editor p {
+    margin: 0;
+    color: #52665d;
+    font-size: 14px;
+}
+
+.admin-toast {
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 13px;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+html[data-theme="dark"] .admin-page {
+    background:
+        radial-gradient(circle at 8% 2%, rgba(205, 169, 79, .1), transparent 16%),
+        radial-gradient(circle at 96% 28%, rgba(89, 147, 91, .12), transparent 18%),
+        #102b25;
+    color: #e6f4ea;
+}
+
+html[data-theme="dark"] .admin-hero {
+    border-color: #315648;
+    background: rgba(23, 55, 47, .95);
+}
+
+html[data-theme="dark"] .admin-mini-metrics > span,
+html[data-theme="dark"] .admin-result-metrics div {
+    border-color: #315648;
+    color: #d3e8da;
+    background: #17372f;
+}
+
+html[data-theme="dark"] .admin-kicker {
+    color: #ffe7a4;
+    background: #4a4126;
+}
+
+html[data-theme="dark"] .admin-hero-row p,
+html[data-theme="dark"] .admin-metric span,
+html[data-theme="dark"] .admin-mini-metrics > span,
+html[data-theme="dark"] .admin-status-card button,
+html[data-theme="dark"] .admin-category-card button,
+html[data-theme="dark"] .admin-sidebar button,
+html[data-theme="dark"] .admin-card-heading p,
+html[data-theme="dark"] .admin-table-card p,
+html[data-theme="dark"] .admin-download-card p,
+html[data-theme="dark"] .admin-top-answers p,
+html[data-theme="dark"] .admin-resource-strip p,
+html[data-theme="dark"] .admin-progress-row,
+html[data-theme="dark"] .admin-table > div,
+html[data-theme="dark"] .admin-history-card > div,
+html[data-theme="dark"] .admin-editor-footer small,
+html[data-theme="dark"] .admin-resource-cards button span,
+html[data-theme="dark"] .admin-upload-row,
+html[data-theme="dark"] .admin-upload-row p,
+html[data-theme="dark"] .admin-form-grid label > span,
+html[data-theme="dark"] .admin-slide-fields label > span,
+html[data-theme="dark"] .admin-explanation > span,
+html[data-theme="dark"] .admin-takeaway > span,
+html[data-theme="dark"] .admin-empty,
+html[data-theme="dark"] .admin-empty-editor p {
+    color: #c3d9cc;
+}
+
+html[data-theme="dark"] .admin-metric strong,
+html[data-theme="dark"] .admin-status-card h2,
+html[data-theme="dark"] .admin-progress-card h2,
+html[data-theme="dark"] .admin-table-card h2,
+html[data-theme="dark"] .admin-download-card h2,
+html[data-theme="dark"] .admin-category-card h2,
+html[data-theme="dark"] .admin-question-table h2,
+html[data-theme="dark"] .admin-history-card h2,
+html[data-theme="dark"] .admin-top-answers h2,
+html[data-theme="dark"] .admin-sidebar h2,
+html[data-theme="dark"] .admin-resource-strip strong,
+html[data-theme="dark"] .admin-history-card > div strong,
+html[data-theme="dark"] .admin-result-metrics strong,
+html[data-theme="dark"] .admin-answer-row strong {
+    color: #eff8f1;
+}
+
+html[data-theme="dark"] .admin-button.secondary,
+html[data-theme="dark"] .admin-answer-row button,
+html[data-theme="dark"] .admin-slide-tabs button,
+html[data-theme="dark"] .admin-resource-cards button {
+    border-color: #416954;
+    color: #d6ebdc;
+    background: #214638;
+}
+
+html[data-theme="dark"] .admin-card-heading > span,
+html[data-theme="dark"] .admin-card-heading > b,
+html[data-theme="dark"] .admin-download-card > div b,
+html[data-theme="dark"] .admin-category-card button b,
+html[data-theme="dark"] .admin-options-editor label small,
+html[data-theme="dark"] .admin-editor-topline button {
+    color: #d4efdc;
+    background: #285342;
+}
+
+html[data-theme="dark"] .admin-button.danger {
+    border-color: #754d4d;
+    color: #ffd1c9;
+    background: #4a2d2c;
+}
+
+html[data-theme="dark"] .admin-form-grid input,
+html[data-theme="dark"] .admin-form-grid textarea,
+html[data-theme="dark"] .admin-form-grid select,
+html[data-theme="dark"] .admin-slide-fields input,
+html[data-theme="dark"] .admin-slide-fields textarea,
+html[data-theme="dark"] .admin-explanation textarea,
+html[data-theme="dark"] .admin-takeaway input,
+html[data-theme="dark"] .admin-options-editor input[type="text"],
+html[data-theme="dark"] .admin-options-editor label > input:not([type="radio"]),
+html[data-theme="dark"] .admin-new-category input {
+    border-color: #416954;
+    color: #e6f4ea;
+    background: #102b25;
+}
+
+html[data-theme="dark"] .admin-options-editor label,
+html[data-theme="dark"] .admin-takeaway,
+html[data-theme="dark"] .admin-question-table > button,
+html[data-theme="dark"] .admin-download-card > div,
+html[data-theme="dark"] .admin-answer-row {
+    border-color: #315648;
+}
+
+html[data-theme="dark"] .admin-options-editor label.correct,
+html[data-theme="dark"] .admin-resource-cards.large button.active,
+html[data-theme="dark"] .admin-question-table > button.active {
+    border-color: #5c956f;
+    background: #244b3a;
+}
+
+html[data-theme="dark"] .admin-progress-row div,
+html[data-theme="dark"] .admin-completion div,
+html[data-theme="dark"] .admin-difficulty div,
+html[data-theme="dark"] .admin-answer-row > div div {
+    background: #29483a;
+}
+
+html[data-theme="dark"] .admin-question-table > button b,
+html[data-theme="dark"] .admin-question-table > button small,
+html[data-theme="dark"] .admin-answer-row small,
+html[data-theme="dark"] .admin-answer-row button,
+html[data-theme="dark"] .admin-resource-cards button b {
+    color: #a9dfb8;
+}
+
+html[data-theme="dark"] .admin-new-category {
+    border-color: #315648;
+    background: #16382f;
+}
+
+html[data-theme="dark"] .admin-new-category label {
+    color: #d5e9db;
+}
+
+@media (max-width: 640px) {
+    .admin-hero {
+        padding: 16px;
+    }
+
+    .admin-hero-actions {
+        flex-wrap: wrap;
+    }
+
+    .admin-history-card > div {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+}

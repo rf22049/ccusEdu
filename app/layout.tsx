@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
+import SiteAnalytics from "@/components/site-analytics";
 
 export const metadata: Metadata = {
   title: "CCUS Edu — Explore, Learn, Discover",
@@ -19,9 +20,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id">
+    <html lang="id" data-scroll-behavior="smooth">
       <body>
         <SiteHeader />
+        <SiteAnalytics />
         {children}
         <SiteFooter />
       </body>

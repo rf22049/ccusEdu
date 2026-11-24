@@ -3,7 +3,12 @@ import { learningMaterials, type LearningMaterial } from "@/lib/materials";
 
 export type ResourceCategory = "modul" | "infografik" | "video";
 export type ResourceFormat = "pdf" | "ppt" | "mp4";
-export type QuizCategory = "basics" | "process";
+export type QuizCategory = string;
+
+export type QuestionCategory = {
+  id: string;
+  name: string;
+};
 
 export type DownloadableMaterial = {
   slug: string;
@@ -27,13 +32,20 @@ export type SiteContent = {
   lessons: LearningMaterial[];
   resources: DownloadableMaterial[];
   questions: QuizQuestion[];
+  questionCategories: QuestionCategory[];
 };
 
 const CONTENT_STORAGE_KEY = "ccus-site-content-v1";
 const CONTENT_CHANGE_EVENT = "ccus-site-content-change";
 
+const defaultQuestionCategories: QuestionCategory[] = [
+  { id: "basics", name: "Konsep Dasar CCUS" },
+  { id: "process", name: "Rantai Proses" },
+];
+
 const defaultSiteContent: SiteContent = {
   lessons: learningMaterials,
+  questionCategories: defaultQuestionCategories,
   resources: [
     {
       slug: "modul-dasar-ccus",
@@ -174,7 +186,8 @@ function isResource(value: unknown): value is DownloadableMaterial {
 
 function isQuestion(value: unknown): value is QuizQuestion {
   return isRecord(value)
-    && ["basics", "process"].includes(String(value.category))
+    && typeof value.category === "string"
+    && value.category.length > 0
     && typeof value.question === "string"
     && Array.isArray(value.options)
     && value.options.length > 1
@@ -186,14 +199,37 @@ function isQuestion(value: unknown): value is QuizQuestion {
     && typeof value.explanation === "string";
 }
 
-function isSiteContent(value: unknown): value is SiteContent {
+function isQuestionCategory(value: unknown): value is QuestionCategory {
+  return isRecord(value)
+    && typeof value.id === "string"
+    && value.id.length > 0
+    && typeof value.name === "string"
+    && value.name.trim().length > 0;
+}
+
+type StoredSiteContent = Omit<SiteContent, "questionCategories"> & {
+  questionCategories?: QuestionCategory[];
+};
+
+function isStoredSiteContent(value: unknown): value is StoredSiteContent {
   return isRecord(value)
     && Array.isArray(value.lessons)
     && value.lessons.every(isLesson)
     && Array.isArray(value.resources)
     && value.resources.every(isResource)
     && Array.isArray(value.questions)
-    && value.questions.every(isQuestion);
+    && value.questions.every(isQuestion)
+    && (value.questionCategories === undefined
+      || (Array.isArray(value.questionCategories)
+        && value.questionCategories.every(isQuestionCategory)));
+}
+
+function isSiteContent(value: unknown): value is SiteContent {
+  if (!isStoredSiteContent(value) || !value.questionCategories) return false;
+  const categoryIds = new Set(value.questionCategories.map((category) => category.id));
+  return value.questionCategories.length > 0
+    && new Set(value.questionCategories.map((category) => category.id)).size === value.questionCategories.length
+    && value.questions.every((question) => categoryIds.has(question.category));
 }
 
 function subscribeToContent(onChange: () => void) {
@@ -216,10 +252,23 @@ function getServerContentSnapshot() {
 function parseContentSnapshot(snapshot: string): SiteContent {
   try {
     const parsed: unknown = JSON.parse(snapshot);
-    if (!isSiteContent(parsed)) {
+    if (!isStoredSiteContent(parsed)) {
       throw new Error("Struktur konten tersimpan tidak valid.");
     }
-    return parsed;
+    const questionCategories = parsed.questionCategories?.length
+      ? parsed.questionCategories
+      : structuredClone(defaultQuestionCategories);
+    const categoryIds = new Set(questionCategories.map((category) => category.id));
+    const missingCategories = [...new Set(parsed.questions
+      .map((question) => question.category)
+      .filter((category) => !categoryIds.has(category)))];
+    return {
+      ...parsed,
+      questionCategories: [
+        ...questionCategories,
+        ...missingCategories.map((id) => ({ id, name: id })),
+      ],
+    };
   } catch (error) {
     console.error("Konten tersimpan tidak dapat dibaca; konten bawaan digunakan.", error);
     return structuredClone(defaultSiteContent);

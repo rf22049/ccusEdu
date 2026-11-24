@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState, useSyncExternalStore } from "react";
 
 type Theme = "light" | "dark";
@@ -35,6 +35,14 @@ const links = [
   { href: "/#game", label: "Game & Kuis", active: () => false },
   { href: "/uji-pemahaman", label: "Uji Pemahaman", active: (path: string) => path === "/uji-pemahaman" },
   { href: "/tentang-kami", label: "Tentang Kami", active: (path: string) => path === "/tentang-kami" },
+];
+
+const adminLinks = [
+  { href: "/", label: "Situs Utama", active: () => false },
+  { href: "/admin?view=ringkasan", label: "Ringkasan", active: (path: string, search: string) => path === "/admin" && (!search.includes("view") || search.includes("ringkasan")) },
+  { href: "/admin?view=konten", label: "Kelola Konten", active: (path: string, search: string) => path === "/admin" && search.includes("konten") },
+  { href: "/admin?view=soal", label: "Kelola Soal", active: (path: string, search: string) => path === "/admin" && search.includes("soal") },
+  { href: "/admin?view=hasil", label: "Hasil Uji", active: (path: string, search: string) => path === "/admin" && search.includes("hasil") },
 ];
 
 export default function SiteHeader() {
@@ -84,7 +92,7 @@ export default function SiteHeader() {
           <span />
         </button>
 
-        <Suspense fallback={<NavigationLinks pathname="" menuOpen={menuOpen} onNavigate={() => setMenuOpen(false)} />}>
+        <Suspense fallback={<NavigationLinks pathname="" search="" menuOpen={menuOpen} onNavigate={() => setMenuOpen(false)} />}>
           <ActiveNavigationLinks menuOpen={menuOpen} onNavigate={() => setMenuOpen(false)} />
         </Suspense>
 
@@ -120,9 +128,11 @@ function ActiveNavigationLinks({
   onNavigate: () => void;
 }) {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   return (
     <NavigationLinks
       pathname={pathname}
+      search={searchParams.toString()}
       menuOpen={menuOpen}
       onNavigate={onNavigate}
     />
@@ -131,18 +141,22 @@ function ActiveNavigationLinks({
 
 function NavigationLinks({
   pathname,
+  search,
   menuOpen,
   onNavigate,
 }: {
   pathname: string;
+  search: string;
   menuOpen: boolean;
   onNavigate: () => void;
 }) {
+  const isAdmin = pathname.startsWith("/admin");
+  const activeLinks = isAdmin ? adminLinks : links;
   return (
     <div className={`nav-links${menuOpen ? " is-open" : ""}`}>
-      {links.map((link) => (
+      {activeLinks.map((link) => (
         <Link
-          className={`nav-link${link.active(pathname) ? " active" : ""}`}
+          className={`nav-link${link.active(pathname, search) ? " active" : ""}`}
           href={link.href}
           key={link.label}
           onClick={onNavigate}
